@@ -53,7 +53,7 @@ namespace AirSense.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(UserViewModel user)
+        public ActionResult Login(UserViewModel user    )
         {
             if (ModelState.IsValid)
             {
