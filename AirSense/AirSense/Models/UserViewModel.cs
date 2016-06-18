@@ -11,6 +11,7 @@ namespace AirSense.Models
         public string Name;
         public string Surname;
         public string Password;
+        public string Username;
     }
 
     //public class
