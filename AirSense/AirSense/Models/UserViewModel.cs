@@ -6,7 +6,6 @@ using FluentValidation;
 
 namespace AirSense.Models
 {
-    []
     public class UserViewModel
     {
         public string Name;
