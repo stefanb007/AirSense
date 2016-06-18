@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace AirSense.Conrtrollers
+namespace AirSense.Controllers
 {
-    public class AccountController : Controller
+    public class HomeController : Controller
     {
-        // GET: Account
-        public ActionResult Login()
+        // GET: Home
+        public ActionResult Index()
         {
             return View();
         }
