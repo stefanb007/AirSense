@@ -12,6 +12,13 @@ namespace AirSense.Models
         public string Surname;
         public string Password;
         public string Username;
+        public int Weight;
+        public int Height;
+        public int Age;
+        public float BMI;
+        public string Sex;
+        public string FitLevel;
+        public string Goal;
     }
 
     //public class
