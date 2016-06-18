@@ -8,6 +8,11 @@ namespace AirSense.Models
 {
     public class UserViewModel
     {
+        //baza
+        public Guid Id;
+        public string Salt;
+        public string HashedPass;
+
         public string Name;
         public string Surname;
         public string Password;
@@ -19,6 +24,7 @@ namespace AirSense.Models
         public string Sex;
         public string FitLevel;
         public string Goal;
+
     }
 
     //public class
