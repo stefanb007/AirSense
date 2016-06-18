@@ -8,11 +8,41 @@ using FluentNHibernate;
 using NHibernate;
 using AirSense.Mappings;
 using NHibernate.Linq;
+using System.Text;
 
 namespace AirSense.Controllers
 {
+    //ヽ༼ຈل͜ຈ༽ﾉ WORDPRESS or RIOT ヽ༼ຈل͜ຈ༽ﾉ
+
     public class AccountController : Controller
     {
+        public static string ByteArrayToHexString(byte[] ba)
+        {
+            StringBuilder hex = new StringBuilder(ba.Length * 2);
+            foreach (byte b in ba)
+            {
+                hex.AppendFormat("{0:x2}", b);
+            }
+            return hex.ToString();
+        }
+
+        public String CreateSalt(int sizeSalt)
+        {
+            var rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
+            var buff = new byte[sizeSalt];
+            rng.GetBytes(buff);
+            return Convert.ToBase64String(buff);
+        }
+
+        public String GenerateSHA256(String input, String salt)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
+            System.Security.Cryptography.SHA256Managed sha256hashstring = new System.Security.Cryptography.SHA256Managed();
+            byte[] hash = sha256hashstring.ComputeHash(bytes);
+
+            return ByteArrayToHexString(hash);
+        }
+
         [HttpGet]
         public ActionResult Login()
         {
