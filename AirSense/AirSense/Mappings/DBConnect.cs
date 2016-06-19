@@ -12,7 +12,7 @@ namespace AirSense.Mappings
         {
             ISessionFactory sessionFactory = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2012
-                  .ConnectionString(@"Data Source=BALTOV-PC;Database=KI_Proekt;Integrated Security=True;")
+                  .ConnectionString(@"Data Source=BALTOV-PC;Database=KI_Proekt;Integrated Security=True")
                               .ShowSql()
                 )
                .Mappings(m => m.FluentMappings
