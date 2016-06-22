@@ -7,7 +7,7 @@ using FluentValidation.Attributes;
 
 namespace AirSense.Models
 {
-    [Validator(typeof(UserViewModelValidator))]
+    //[Validator(typeof(UserViewModelValidator))]
     public class UserViewModel
     {
         //baza
@@ -17,6 +17,8 @@ namespace AirSense.Models
         public virtual string Name { get; set; }
         public virtual string Surname { get; set; }
         public virtual string Username { get; set; }
+        public virtual string Password { get; set; }
+        public virtual string ConfirmPassword { get; set; }
         public virtual int Weight { get; set; }
         public virtual int Height { get; set; }
         public virtual int Age { get; set; }
@@ -24,9 +26,8 @@ namespace AirSense.Models
         public virtual string Sex { get; set; }
         public virtual string FitLevel { get; set; }
         public virtual string Goal { get; set; }
-        public virtual string Role { get; set; }
         public virtual string Email { get; set; }
-
+        public virtual string RoleId { get; set; }
     }
 
     public class UserViewModelValidator : AbstractValidator<UserViewModel>
@@ -39,6 +40,8 @@ namespace AirSense.Models
                 .NotEmpty().WithMessage("Enter last name");
             RuleFor(r => r.Username)
                 .NotEmpty().WithMessage("Enter username");
+            RuleFor(r => r.Password)
+                .NotEmpty().WithMessage("Enter password");
             RuleFor(r => r.Email)
                 .NotEmpty().WithMessage("Enter email")
                 .EmailAddress().WithMessage("This is not a valid email address");

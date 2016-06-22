@@ -46,27 +46,27 @@ namespace AirSense.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            if (Session["user"] == null)
+            if (Session["model"] == null)
                 return View();
             else
                 return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
-        public ActionResult Login(UserViewModel user)
+        public ActionResult Login(UserViewModel model)
         {
             if (ModelState.IsValid)
             {
                 using (ISession session = DBConnect.OpenUserSession())
                 {
                     var query = (from x in session.Query<UserViewModel>()
-                                 where x.Username == user.Username
+                                 where x.Username == model.Username
                                  select x).FirstOrDefault();
                     if (query != null)
                     {
-                        Session["user"] = query;
+                        Session["model"] = query;
                         Session["username"] = query.Username;
-                        Session["role"] = query.Role;
+                        //Session["role"] = query.Role;
                         return RedirectToAction("Index", "Home");
                     }
                     else
@@ -78,5 +78,53 @@ namespace AirSense.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Signup()
+        {
+            if (Session["user"] == null)
+                return View();
+            else
+                return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult Signup(UserViewModel user)
+        {
+            if (ModelState.IsValid)
+            {
+                    using (ISession session = DBConnect.OpenUserSession())
+                    {
+                        using (ITransaction tx = session.BeginTransaction() )
+                        {
+                            UserViewModel qUserU = new UserViewModel();
+                            UserViewModel qUserE = new UserViewModel();
+                            qUserU = session.Query<UserViewModel>()
+                                .Where(x => x.Username == user.Username)
+                                .FirstOrDefault();
+                            qUserE = session.Query<UserViewModel>()
+                                .Where(x => x.Email == user.Email)
+                                .FirstOrDefault();
+                            if (qUserU != null || qUserE != null)
+                            {
+                                if (qUserU != null)
+                                { ModelState.AddModelError("Username", "Username has been taken."); }
+                                if (qUserE != null)
+                                { ModelState.AddModelError("Email", "There exists an account with this email address."); }
+                                return View();
+                            } else {
+
+                            user.RoleId = "user";
+                            user.Id = Guid.NewGuid();
+                            user.Salt = CreateSalt(10);
+                            user.HashedPass = GenerateSHA256(user.Password, user.Salt);
+                            session.Save(user);
+                            tx.Commit();
+                            return RedirectToAction("Index", "Home");
+                            }
+                    }
+                }
+            }
+            return View();
+        }
     }
 }

@@ -16,16 +16,16 @@ namespace Test1.Models
             Map(x => x.HashedPass);
             Map(x => x.Name);
             Map(x => x.Surname);
-            Map(x => x.Username);
+            Map(x => x.Username); 
             Map(x => x.Email);
             Map(x => x.Age);
             Map(x => x.Sex);
-            Map(x => x.Role);
             Map(x => x.Weight);
             Map(x => x.Height);
             Map(x => x.BMI);
             Map(x => x.FitLevel);
             Map(x => x.Goal);
+            Map(x => x.RoleId);
             Table("Korisnici");
         }
     }
