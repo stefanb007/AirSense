@@ -20,10 +20,16 @@ namespace AirSense
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/jquery-{version}.js",
+                      "~/Content/theme/js/jquery.js",
+                      "~/Content/theme/js/jquery.easing.min.js",
+                      "~/Content/theme/js/grayscale.js",
+                      "~/Content/theme/js/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/theme/css/bootstrap.css",
+                      "~/Content/theme/css/grayscale.css",
+                      "~/Content/theme/font-awesome/css/font-awesome.min.css",
                       "~/Content/site.css"));
         }
     }

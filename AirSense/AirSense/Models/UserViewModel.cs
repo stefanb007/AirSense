@@ -7,7 +7,7 @@ using FluentValidation.Attributes;
 
 namespace AirSense.Models
 {
-    //[Validator(typeof(UserViewModelValidator))]
+    [Validator(typeof(UserViewModelValidator))]
     public class UserViewModel
     {
         //baza
