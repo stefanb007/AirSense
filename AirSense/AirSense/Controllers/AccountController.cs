@@ -59,19 +59,27 @@ namespace AirSense.Controllers
             {
                 using (ISession session = DBConnect.OpenUserSession())
                 {
-                    var query = (from x in session.Query<UserViewModel>()
+                    
+                    var checkUsername = (from x in session.Query<UserViewModel>()
                                  where x.Username == model.Username
                                  select x).FirstOrDefault();
-                    if (query != null)
+                    if (checkUsername == null)
                     {
-                        Session["model"] = query;
-                        Session["username"] = query.Username;
+                        ModelState.AddModelError("Username", "Username not taken.");
+                        return View();
+                    }
+                    string checkPassword = GenerateSHA256(model.Password, checkUsername.Salt);
+                    if (checkPassword == checkUsername.HashedPass)
+                    {
+                        Session["model"] = checkUsername;
+                        Session["username"] = checkUsername.Username;
                         //Session["role"] = query.Role;
                         return RedirectToAction("Index", "Home");
                     }
                     else
                     {
                         ModelState.AddModelError("Password", "Combination of username and password doesn't exist.");
+                        return View();
                     }
                 }
             }
