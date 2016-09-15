@@ -11,9 +11,14 @@ namespace Test1.Models
     {
         public UserMap()
         {
+            Table("Korisnici");
+
             Id(x => x.Id);
-            Map(x => x.Salt);
-            Map(x => x.HashedPass);
+
+            Map(x => x.Salt)
+                .Not.Nullable();
+            Map(x => x.HashedPass)
+                .Not.Nullable();
             Map(x => x.Name);
             Map(x => x.Surname);
             Map(x => x.Username); 
@@ -26,7 +31,6 @@ namespace Test1.Models
             Map(x => x.FitLevel);
             Map(x => x.Goal);
             Map(x => x.RoleId);
-            Table("Korisnici");
         }
     }
 }

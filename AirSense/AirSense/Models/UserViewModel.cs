@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using FluentValidation;
 using FluentValidation.Attributes;
@@ -45,6 +46,24 @@ namespace AirSense.Models
             RuleFor(r => r.Email)
                 .NotEmpty().WithMessage("Enter email")
                 .EmailAddress().WithMessage("This is not a valid email address");
+        }
+    }
+
+
+    public class LoginViewModel
+    {
+        public virtual string Username { get; set; }
+        public virtual string Password { get; set; }
+    }
+
+    public class LoginViewModelValidator : AbstractValidator<LoginViewModel>
+    {
+        public LoginViewModelValidator()
+        {
+            RuleFor(l => l.Username)
+                .NotEmpty().WithMessage("Username must not be empty!");
+            RuleFor(l => l.Password)
+                .NotEmpty().WithMessage("Password must not be empty!");
         }
     }
 

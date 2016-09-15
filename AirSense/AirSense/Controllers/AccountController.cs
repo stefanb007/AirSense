@@ -34,7 +34,7 @@ namespace AirSense.Controllers
             return Convert.ToBase64String(buff);
         }
 
-        public String GenerateSHA256(String input, String salt)
+        public String GenerateSHA256(string input, string salt)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
             System.Security.Cryptography.SHA256Managed sha256hashstring = new System.Security.Cryptography.SHA256Managed();
@@ -53,7 +53,7 @@ namespace AirSense.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(UserViewModel model)
+        public ActionResult Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
