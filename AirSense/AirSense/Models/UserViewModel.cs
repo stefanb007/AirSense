@@ -67,4 +67,16 @@ namespace AirSense.Models
         }
     }
 
+    public class SignupViewModel
+    {
+        public virtual Guid Id { get; set; }
+        public virtual string Username { get; set; }
+        public virtual string Email { get; set; }
+        public virtual string RoleId { get; set; }
+        public virtual string Salt { get; set; }
+        public virtual string HashedPass { get; set; }
+        public virtual string Password { get; set; }
+
+    }
+
 }

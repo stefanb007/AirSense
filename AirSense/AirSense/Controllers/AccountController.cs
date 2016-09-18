@@ -60,7 +60,7 @@ namespace AirSense.Controllers
                 using (ISession session = DBConnect.OpenUserSession())
                 {
                     
-                    var checkUsername = (from x in session.Query<UserViewModel>()
+                    var checkUsername = (from x in session.Query<User>()
                                  where x.Username == model.Username
                                  select x).FirstOrDefault();
                     if (checkUsername == null)
@@ -96,7 +96,7 @@ namespace AirSense.Controllers
         }
 
         [HttpPost]
-        public ActionResult Signup(UserViewModel user)
+        public ActionResult Signup(SignupViewModel user)
         {
             if (ModelState.IsValid)
             {
@@ -104,12 +104,12 @@ namespace AirSense.Controllers
                     {
                         using (ITransaction tx = session.BeginTransaction() )
                         {
-                            UserViewModel qUserU = new UserViewModel();
-                            UserViewModel qUserE = new UserViewModel();
-                            qUserU = session.Query<UserViewModel>()
+                        User qUserU = new User();
+                        User qUserE = new User();
+                            qUserU = session.Query<User>()
                                 .Where(x => x.Username == user.Username)
                                 .FirstOrDefault();
-                            qUserE = session.Query<UserViewModel>()
+                            qUserE = session.Query<User>()
                                 .Where(x => x.Email == user.Email)
                                 .FirstOrDefault();
                             if (qUserU != null || qUserE != null)

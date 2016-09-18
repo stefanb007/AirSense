@@ -12,11 +12,11 @@ namespace AirSense.Mappings
         {
             ISessionFactory sessionFactory = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2012
-                  .ConnectionString(@"Data Source=BALTOV-PC;Database=KI_Proekt;Integrated Security=True")
+                  .ConnectionString(@"Data Source=STEFAN-PC;Database=FitTracker;Integrated Security=True")
                               .ShowSql()
                 )
                .Mappings(m => m.FluentMappings
-                              .AddFromAssemblyOf<UserViewModel>())
+                              .AddFromAssemblyOf<User>())
                 .ExposeConfiguration(cfg => new SchemaExport(cfg)
                                                 .Create(false, false))
                 .BuildSessionFactory();

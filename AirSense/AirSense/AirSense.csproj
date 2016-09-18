@@ -129,6 +129,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\custom\fonts.css" />
+    <Content Include="Content\img\logo\logo.png" />
+    <Content Include="Content\img\sliders\1.jpg" />
+    <Content Include="Content\img\sliders\2.jpg" />
+    <Content Include="Content\img\sliders\3.jpg" />
+    <Content Include="Content\img\sliders\4.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\theme\css\bootstrap.css" />
     <Content Include="Content\theme\css\bootstrap.min.css" />
@@ -207,6 +212,30 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\plugins\Icons\et-line-font\et-line.dev.svg" />
+    <Content Include="Scripts\plugins\Icons\et-line-font\fonts\et-line.svg" />
+    <Content Include="Scripts\plugins\Icons\et-line-font\index.html" />
+    <Content Include="Scripts\plugins\Icons\et-line-font\lte-ie7.js" />
+    <Content Include="Scripts\plugins\Icons\et-line-font\Read Me.txt" />
+    <Content Include="Scripts\plugins\Icons\et-line-font\style.css" />
+    <Content Include="Scripts\plugins\inview\jquery.inview.js" />
+    <Content Include="Scripts\plugins\inview\jquery.inview.min.js" />
+    <Content Include="Scripts\plugins\Lightbox\dist\css\lightbox.css" />
+    <Content Include="Scripts\plugins\Lightbox\dist\images\close.png" />
+    <Content Include="Scripts\plugins\Lightbox\dist\images\loading.gif" />
+    <Content Include="Scripts\plugins\Lightbox\dist\images\next.png" />
+    <Content Include="Scripts\plugins\Lightbox\dist\images\prev.png" />
+    <Content Include="Scripts\plugins\Lightbox\dist\js\lightbox-plus-jquery.js" />
+    <Content Include="Scripts\plugins\Lightbox\dist\js\lightbox-plus-jquery.min.js" />
+    <Content Include="Scripts\plugins\Lightbox\dist\js\lightbox.js" />
+    <Content Include="Scripts\plugins\Lightbox\dist\js\lightbox.min.js" />
+    <Content Include="Scripts\plugins\owl-carousel\AjaxLoader.gif" />
+    <Content Include="Scripts\plugins\owl-carousel\grabbing.png" />
+    <Content Include="Scripts\plugins\owl-carousel\owl.carousel.css" />
+    <Content Include="Scripts\plugins\owl-carousel\owl.carousel.js" />
+    <Content Include="Scripts\plugins\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Scripts\plugins\owl-carousel\owl.theme.css" />
+    <Content Include="Scripts\plugins\owl-carousel\owl.transitions.css" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -219,6 +248,14 @@
     <Content Include="Views\Account\SignUp.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\plugins\Icons\et-line-font\.DS_Store" />
+    <Content Include="Scripts\plugins\Icons\et-line-font\fonts\.DS_Store" />
+    <Content Include="Scripts\plugins\Icons\et-line-font\fonts\et-line.eot" />
+    <Content Include="Scripts\plugins\Icons\et-line-font\fonts\et-line.ttf" />
+    <Content Include="Scripts\plugins\Icons\et-line-font\fonts\et-line.woff" />
+    <Content Include="Scripts\plugins\inview\LICENSE" />
+    <Content Include="Scripts\plugins\Lightbox\dist\js\lightbox-plus-jquery.min.map" />
+    <Content Include="Scripts\plugins\Lightbox\dist\js\lightbox.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -244,6 +281,7 @@
     </Compile>
     <Compile Include="Mappings\DBConnect.cs" />
     <Compile Include="Mappings\UserMap.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
